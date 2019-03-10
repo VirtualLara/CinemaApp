@@ -6,6 +6,7 @@ import Listado from '../Componentes/Listado';
 
 
 export default class Principal extends Component {
+    
 
     render(){
         return(
@@ -21,7 +22,7 @@ export default class Principal extends Component {
                 <ScrollView style={{flex:10}}>
                     {/* <View style = {estilos.cuerpoApp}> */}
                         <Carrousel/>
-                        <Listado/>
+                        <Listado navegador={this.props.navigation}/> {/* De este modo se pasa el prop de navegar a un componente*/}
                         {/* </View> */}
                 </ScrollView>
             </View>

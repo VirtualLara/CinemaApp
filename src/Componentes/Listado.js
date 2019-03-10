@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, TouchableHighlight} from 'react-native';
 import {Picker, Form, } from 'native-base';
 import PeliculaTarjeta from './TarjetaPelicula';
 
@@ -7,6 +7,7 @@ export default class Listado extends Component {
     constructor(props){
         super(props)
         this.valorSeleccionado=this.valorSeleccionado.bind(this);
+        this.navegar=this.navegar.bind(this);
         this.state={
             piketValor: undefined,
             elementosLista:[
@@ -33,6 +34,8 @@ export default class Listado extends Component {
                 {},
                 {},
                 {},
+                {},
+                {},
             ]
         }
     }
@@ -50,7 +53,17 @@ export default class Listado extends Component {
     }
 
     renderizarTarjetasLista (){
+        return this.state.listaPeliculas.map( (Item, Index) => {
+            return (
+                <TouchableHighlight key={Index} onPress={()=>{this.navegar()}}>
+                    <PeliculaTarjeta key={Index}/>
+                </TouchableHighlight>
+            )
+        } )
+    }
 
+    navegar(){
+        this.props.navegador.navigate('Detalles'); {/* Aquí recibimos el prop del navegador */}
     }
 
     render(){
@@ -64,12 +77,7 @@ export default class Listado extends Component {
                     </Form>
                 </View>
                 <View style={estilos.listadoPeliculas}>
-                    <PeliculaTarjeta/>
-                    <PeliculaTarjeta/>
-                    <PeliculaTarjeta/>
-                    <PeliculaTarjeta/>
-                    <PeliculaTarjeta/>
-                    <PeliculaTarjeta/>
+                    {this.renderizarTarjetasLista()}    
                 </View>
             </View>
         );

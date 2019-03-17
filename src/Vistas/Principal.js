@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet, StatusBar, Platform, ScrollView, } from 'react-native';
 import {Header, Text, Left, Right, Body, H2 } from 'native-base';
 import Carrousel from '../Componentes/CarruselImagenes';
-import Listado from '../Componentes/Listado';
+import Listado from '../Componentes/NewListado';
 
 
 export default class Principal extends Component {
@@ -22,7 +22,8 @@ export default class Principal extends Component {
                 <ScrollView style={{flex:10}}>
                     {/* <View style = {estilos.cuerpoApp}> */}
                         <Carrousel/>
-                        <Listado navegador={this.props.navigation}/> {/* De este modo se pasa el prop de navegar a un componente*/}
+                        <Listado navegador={this.props.navigation}/>
+                        {/* <Listado navegador={this.props.navigation}/> De este modo se pasa el prop de navegar a un componente */}
                         {/* </View> */}
                 </ScrollView>
             </View>

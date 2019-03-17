@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Navegador from './src/Navegador/StackNevegador';
 import {Font} from 'expo';
 import {Ionicons} from '@expo/vector-icons';
+import Principal from './src/Vistas/Principal'
 
 
 export default class App extends React.Component {

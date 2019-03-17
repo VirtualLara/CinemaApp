@@ -1,23 +1,32 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Image, Text, } from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default class TarjetaPelicula extends Component {
+    constructor(props){
+        super(props)
+
+
+    }
 
     render(){
         return(
             <View style={estilos.contenedor}>
                 <View style={estilos.imagenSeccion}>
-                    <Image style={estilos.imagenPelicula} source={{uri:'https://m.media-amazon.com/images/M/MV5BMjlhY2Y5NGYtZDdlMS00YzhhLWJhNzQtNWYzNTQzZDJjNGU2XkEyXkFqcGdeQXVyODY0NzcxNw@@._V1_UX182_CR0,0,182,268_AL_.jpg'}}/>
+                    <Image style={estilos.imagenPelicula} source={{uri: 'https://cinemapp.000webhostapp.com/images/'+this.props.imagen}}/>
                 </View>
                 <View style={estilos.datosSeccion}>
                     <View style={estilos.datosTitulo}>
-                        <Text style={estilos.textoTitulo}> Jurassic Park </Text>
+                        <Text style={estilos.textoTitulo}> {this.props.nombre} </Text>
                     </View>
                     <View style={estilos.datosInfo}>
-                        <Text style={estilos.textoInfo}> xx  xx x x </Text>
+                        <MaterialIcons name='local-movies' color='#2ECCFA' size={18} />
+                        <Text style={estilos.textoInfo}> {this.props.duracion} </Text>
+                        <Text style={estilos.textoInfo}>     {this.props.clasifi} </Text>
                     </View>
                     <View style={estilos.datosHoras}>
-                        <Text style={estilos.textoInfo}> xx  xx x x </Text>
+                        <MaterialIcons name='movie' color='#2ECCFA' size={18} />
+                        <Text style={estilos.textoInfo}> {this.props.genero}  </Text>
                     </View>
                 </View>
             </View>
@@ -51,13 +60,14 @@ const estilos = StyleSheet.create({
     },
     datosHoras:{
         flex:2,
+        flexDirection: 'row',
     },
     textoInfo:{
         fontSize: 13,
         color:'gray',
     },
     textoTitulo:{
-        fontSize:20,
+        fontSize:18,
         fontWeight: 'bold',
     },
     imagenPelicula:{

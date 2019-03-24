@@ -22,6 +22,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android":{
+      "package": "com.apps.CinemaApp"
+    },
     "ios": {
       "supportsTablet": true
     }
